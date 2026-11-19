@@ -1,0 +1,12 @@
+{
+  "name": "creatorpilot-ai",
+  "version": "1.0.0",
+  "description": "CreatorPilot AI backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
