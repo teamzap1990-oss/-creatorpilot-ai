@@ -1,22 +1,23 @@
-const express = require("express");
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+    if (url.pathname === "/") {
+      return Response.json({
+        name: "CreatorPilot AI",
+        status: "running",
+        message: "Добро пожаловать в CreatorPilot AI!"
+      });
+    }
 
-app.use(express.json());
+    if (url.pathname === "/health") {
+      return Response.json({
+        status: "ok"
+      });
+    }
 
-app.get("/", (req, res) => {
-  res.json({
-    name: "CreatorPilot AI",
-    status: "Backend is running",
-    message: "Добро пожаловать в CreatorPilot AI!"
-  });
-});
-
-app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
-});
-
-app.listen(PORT, () => {
-  console.log(`CreatorPilot AI запущен на порту ${PORT}`);
-});
+    return Response.json({
+      error: "Not found"
+    }, { status: 404 });
+  }
+};
