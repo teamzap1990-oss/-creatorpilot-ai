@@ -1,0 +1,3 @@
+name = "creatorpilot-ai"
+main = "server/index.js"
+compatibility_date = "2026-11-20"
